@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 import { Message } from "./message.model";
 
 @Component({
@@ -22,4 +22,11 @@ import { Message } from "./message.model";
 
 export class MessageComponent {
     @Input() message: Message;
+    @Output() editClicked = new EventEmitter<String>();
+
+    color = 'blue';
+
+    onEdit() {
+        this.editClicked.emit('A new value');
+    }
 }
