@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from '../service';
 import { SERVICES } from '../mock-services';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-services',
@@ -8,14 +9,22 @@ import { SERVICES } from '../mock-services';
   styleUrls: ['./services.component.css']
 })
 export class ServicesComponent implements OnInit {
-  services = SERVICES;
+  services: Service[];
   selectedService = Service;
+
   onSelect(service: Service): void {
     this.selectedService = service;
   }
-  constructor() { }
+
+  getServices(): void {
+    this.serviceService.getServices()
+      .subscribe(services => this.services = services);
+  }
+
+  constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
+    this.getServices();
   }
 
 }

@@ -10,11 +10,4 @@
 
 </div>
 
-<div *ngIf="selectedService">
-  <h2>{{ selectedService.name }} Details</h2>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedService.name" placeholder="name">
-    </label>
-  </div>
-</div>
+<app-service-detail [service]="selectedService"></app-service-detail>
