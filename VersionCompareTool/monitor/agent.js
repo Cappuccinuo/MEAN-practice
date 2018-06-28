@@ -2,7 +2,7 @@ var minutes = 0.01
 var the_interval = minutes * 60 * 1000;
 const fs = require('fs');
 
-fs.readFile('test.json', (err, data) => {
+fs.readFile('assets/cointcore_from_coint_ignore_upgrade.json', (err, data) => {
   if (err) throw err;
   var test = JSON.parse(data);
   console.log(test);
@@ -20,7 +20,8 @@ setInterval(function() {
   var currentdate = new Date().toLocaleString();
   console.log(currentdate);
 
-  // Fetch Json files using powershell
-
-  // Create JSON file or append {"time":t, "env1":env1, "version1":version1, "env2":env2, "version2":version2}
+  // Fetch Json files using powershell every one hour
+  // Read file to get the version
+  // "env1" : coint, "env2" : zeint, map to corresponding files
+  // Create JSON file or append {"time":t, "version1":version1, "version2":version2}
 }, the_interval);
