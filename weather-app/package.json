@@ -14,6 +14,7 @@
     "express": "^4.16.3",
     "node-env-file": "^0.1.8",
     "request": "^2.87.0",
+    "sweetalert2": "^7.24.4",
     "yargs": "^11.0.0"
   }
 }

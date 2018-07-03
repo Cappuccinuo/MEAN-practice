@@ -4,10 +4,13 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const apiKey = process.env.KEY
 const argv = require('yargs').argv;
+const swal = require('sweetalert2');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs')
+
+let flag = true;
 
 app.get('/', function (req, res) {
   res.render('index', {weather: null, error: null});
@@ -31,6 +34,12 @@ app.post('/', function (req, res) {
       }
     }
   });
+})
+
+app.get('/test', function(req, res) {
+  res.write('foo');
+  res.render('index', {weather: null, error: 'Error, please try again'});
+  res.end();
 })
 
 app.listen(3000, function () {
