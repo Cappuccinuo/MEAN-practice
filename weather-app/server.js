@@ -2,9 +2,8 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 const request = require('request');
-const apiKey = process.env.KEY
+const apiKey = process.env.KEY;
 const argv = require('yargs').argv;
-const swal = require('sweetalert2');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
