@@ -4,7 +4,7 @@ const app = express();
 const Post = require('./models/post');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://cappuccinuo:kAZ6i2bSUfmAI8nD@mean-course-uanj9.mongodb.net/test?retryWrites=true')
+mongoose.connect('mongodb+srv://cappuccinuo:kAZ6i2bSUfmAI8nD@mean-course-uanj9.mongodb.net/node-angular?retryWrites=true')
   .then(() => {
     console.log('Connected to database!');
   })
@@ -31,7 +31,7 @@ app.post('/api/posts', (req, res, next) => {
     title: req.body.title,
     content: req.body.content
   });
-  console.log(post);
+  post.save();
   res.status(201).json({
     message: 'Post added successfully'
   });
