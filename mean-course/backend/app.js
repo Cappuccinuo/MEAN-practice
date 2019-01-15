@@ -5,7 +5,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 const postsRoutes = require('./routes/posts');
-const userRoutes = require('./routes/posts');
+const userRoutes = require('./routes/user');
 
 mongoose
   .connect(
